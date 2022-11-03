@@ -1,0 +1,17 @@
+{
+    "editor.mouseWheelZoom": true,
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ObjectNamePrefix": "BSB ",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "editor.snippetSuggestions": "bottom",
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${UICop}",
+        "${CodeCop}",
+        "${PerTenantExtensionCop}"
+    ],
+    "al-xml-doc.CheckObjectDocumentationInformationLevel": "Disabled",
+    "al-xml-doc.CheckProcedureDocumentationInformationLevel": "Disabled"
+}
