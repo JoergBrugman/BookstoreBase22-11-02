@@ -108,7 +108,8 @@ table 50100 "BSB Book"
     }
 
     var
-        OnDeleteErr: Label '%1 %2 cannot be deleted', Comment = '"DEU"=%1 %2 kann nicht gelöscht werden';
+        OnDeleteBookErr: Label '%1 %2 cannot be deleted', Comment = '"DEU"=%1 %2 kann nicht gelöscht werden';
+        Handled: Boolean;
 
     trigger OnInsert()
     begin
@@ -127,8 +128,12 @@ table 50100 "BSB Book"
 
     trigger OnDelete()
     begin
-        Error(OnDeleteErr, TableCaption, "No.");
+        OnBeforeDelete(Rec, Handled);
+        if Handled then
+            exit;
+        Error(OnDeleteBookErr);
     end;
+
     /// <summary>
     /// Die TestBlocked-Funktion überprüft...
     /// </summary>
@@ -139,6 +144,30 @@ table 50100 "BSB Book"
 
     procedure ShowCard()
     begin
-        Page.Run(Page::"BSB Book Card", Rec);
+        ShowCard(Rec);
+    end;
+
+    procedure ShowCard(BookNo: Code[20])
+    var
+        BSBBook: Record "BSB Book";
+    begin
+        if not BSBBook.Get(BookNo) then
+            exit;
+        // ShowCard(BSBBook);
+        BSBBook.ShowCard();
+    end;
+
+    /// <summary>
+    /// ShowCard.
+    /// </summary>
+    /// <param name="BSBBook">Record "BSB Book".</param>
+    procedure ShowCard(BSBBook: Record "BSB Book")
+    begin
+        Page.Run(Page::"BSB Book Card", BSBBook);
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeDelete(Rec: Record "BSB Book"; var Handled: Boolean)
+    begin
     end;
 }
