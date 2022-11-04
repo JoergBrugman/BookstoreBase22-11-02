@@ -28,6 +28,11 @@ pageextension 50100 "BSB Customer Card" extends "Customer Card"
                 // Erst Ziel, dann Quelle
                 SubPageLink = "No." = field("BSB Favorite Book No.");
             }
+            part(BingMaps; "BSB BingMapsCardPart")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
+            }
         }
     }
 }
