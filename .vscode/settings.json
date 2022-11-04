@@ -13,5 +13,6 @@
         "${PerTenantExtensionCop}"
     ],
     "al-xml-doc.CheckObjectDocumentationInformationLevel": "Disabled",
-    "al-xml-doc.CheckProcedureDocumentationInformationLevel": "Disabled"
+    "al-xml-doc.CheckProcedureDocumentationInformationLevel": "Disabled",
+    "workbench.colorTheme": "Default High Contrast"
 }

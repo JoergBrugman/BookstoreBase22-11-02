@@ -17,6 +17,9 @@ tableextension 50100 "BSB Customer" extends Customer
                     BSBBook.Get("BSB Favorite Book No.");
                     BSBBook.TestBlocked();
                 end;
+
+                if ("BSB Favorite Book No." <> xRec."BSB Favorite Book No.") and (CurrFieldNo > 0) then
+                    CalcFields("BSB Favorite Book Description");
             end;
         }
 

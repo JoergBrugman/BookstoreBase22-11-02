@@ -5,6 +5,8 @@ table 50100 "BSB Book"
 {
     Caption = 'Book';
     DataClassification = ToBeClassified;
+    DataCaptionFields = "No.", Description;
+    LookupPageId = "BSB Book List";
 
     fields
     {
@@ -100,6 +102,11 @@ table 50100 "BSB Book"
         }
     }
 
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", Description, Author, "No. of Pages") { }
+    }
+
     var
         OnDeleteErr: Label '%1 %2 cannot be deleted', Comment = '"DEU"=%1 %2 kann nicht gelöscht werden';
 
@@ -128,5 +135,10 @@ table 50100 "BSB Book"
     procedure TestBlocked()
     begin
         TestField(Blocked, false);
+    end;
+
+    procedure ShowCard()
+    begin
+        Page.Run(Page::"BSB Book Card", Rec);
     end;
 }
