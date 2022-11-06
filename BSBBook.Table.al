@@ -109,7 +109,6 @@ table 50100 "BSB Book"
 
     var
         OnDeleteBookErr: Label '%1 %2 cannot be deleted', Comment = '"DEU"=%1 %2 kann nicht gelöscht werden';
-        TestLblMsg: Label 'Test Message';
         Handled: Boolean;
 
     trigger OnInsert()

@@ -4,5 +4,7 @@ permissionset 50100 "BSB BOOKSTORE, EDIT"
     // Assignable = true;
     Permissions =
         table "BSB Book" = X,
-        tabledata "BSB Book" = RIMD;
+        tabledata "BSB Book" = RIMD,
+        tabledata "BSB AL Issue" = RIMD,
+        tabledata "BSB Internal Log" = RIMD;
 }
